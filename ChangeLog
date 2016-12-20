@@ -1,0 +1,201 @@
+0.9-47
+- fixed error in predict arising from earlier fix (Thanks to Bernd Bischl for the bug report)
+- made addition of response column in data not nessary for predict (Thanks to Bernd Bischl for the bug report)
+
+0.9-46
+- fixed error in predict() if unpenalized of the form ~0+X (Thanks to mark van de Wiel for the bug report)
+- updated namespace to new standards
+
+0.9-45
+- minor changes to DESCRIPTION
+
+0.9-44
+- fixed error in predict penfit.R in the presence of an offset term
+- .ridge takes a half Newton-Raphson step if likelihood decreases otherwise
+
+0.9-43
+- changed default minsteps in profL1.
+- fixed error when setting col when plotting breslow obect
+- fixed error in predict in cox.R in the presence of an offset term
+
+0.9-42
+- Fixed error with NA loglikelihood in the Cox model introduced in version 41.
+- Fixed error "Error in strata[status == 1] : object of type 'closure' is not subsettable" (thanks to Ilari Scheinin for the bug report)
+
+0.9-41
+- Fixed wrong calculation of cvl at infinite penalty in optL2 for Cox.
+- fixed error message in case of –Inf loglikelihood in the cox model.
+
+0.9-40
+- added functionality for fused lasso
+
+0.9-39
+- fixed Inf * 0 problem in cox.R (thanks to Levi Waldron for the bug report)
+- fixed problem in case unpenalized = ~strata() without further covariates (thanks to Holger Schwender for the bug report)
+- added strata example to vignette
+
+0.9-38
+- fixed a problem in .coxmerge arising when censored observations were present at time 0 (thanks to Thierry Picot for the bug report)
+- fixed cross-validated partial likelihood for k<n-fold
+- changed start-up message to use packageStartupMessage().
+- moved vignette to vignettes folder
+
+0.9-37
+- argument "approximate" added to cvl, optL2 and profL2
+- minor changes in optL1,optL2,profL1,profL2 to aviod errors for 1-fold CV
+- approximate = TRUE standard option for linear model
+- onattach.R added with welcome message pointing to vignette
+
+0.9-36
+- more informative error if minlambda2 or maxlambda2 missing in profL2
+- made explicit in the documentation that positivity constraint only gives non-negativity
+- changed likelihood calculation in logistic model to avoid numerical problems (NA likelihood)
+- repaired warnings in optL1 arising from prediction calculations in lambda2=Inf
+- allowed non-initial values of lambda2 equal to zero in makeP
+
+0.9-35
+- patched problem with steps="park" (thanks to Clive Hoggart for the bug report)
+- patched problem with cross-validated predictions in cvl() with survival data
+- patched as.data.frame names for breslow objects
+- added reference to vignette in Rd files
+
+0.9-34
+- added all to "if (lambda2==0)" in penalized()
+- removed zipData=yes from description
+
+0.9-33
+- opened option to have positive argument as a vector, forcing only some coefficients to be positive.
+- made reference to the paper in the vignette more explicit.
+- opened option for different (non-zero) penalties for different covariates.
+
+0.9-32
+- worked around bug in Design package causing error in penalized.
+- made sure profL1 does not go all the way to lambda1=0 if model is high-dimensional
+- Added reference field to penalized.Rd and cvl.Rd.
+
+0.9-31
+- corrected calculation of cross-validated partial likelihood in case of ties.
+- improved documentation of predict
+- fixed bug log10(iter) for iter=0.
+- added check for missing values in penalized argument
+- added fitted() as synonym of fitted.values
+- fixed bug "Error in strata[status == 1] : object of type 'closure' is not subsettable" (Thanks to Melania Pintilie for pointing this out)
+- fixed bug in step="Park" in logistic regression (Thanks to Hélène rousseau for pointing this out)
+- added warning using steps if lambda1 is greater than maximal lambda1
+
+0.9-30
+- updated reference to Biometrical Journal paper
+- changed default model choice. A reponse with all non-negative whole numbers now defaults to linear rather than poisson.
+- logical response now defaults to logistic model
+
+0.9-29
+- added check for repeated columns in .makeP to ensure full rank. This prevents singularity errors when two subjects have identical covariate values
+- repaired labels of predict breslow object for survival
+- added example to predict paragraph in Vignette
+
+0.9-28
+- added explanation of loglik() and penalty() to the vignette.
+- added reference to globaltest pretesting to the vignette
+- fixed bug in order-of-magnitude finding in optL2
+- fixed bug in right margin size calculation in plotpath()
+
+0.9-27
+- added set.seed to vignette.
+- added link to predict.Rd from penfit.Rd
+- added formula slot to penfit
+- changed predict() to use penfit's formula slot
+- repaired bug in predict with ~. formula (thanks to Bernd Bischl for pointing this out)
+- added error message in case of multi-level response (thanks to Ming-Chung Li for pointing this out)
+
+0.9-26
+- Repaired optL2 bug: "Error in X %*% beta : non-conformable arguments" for optL2 with non-penalized covariates.
+
+0.9-25
+- Repaired bug in predict function for the Cox model in absence of strata
+
+0.9-24
+- Repaired optL2: gives exactly maxlambda2 as optimum if that is the optimum
+- repaired minor bug in optL2.
+- mentioned the preprint of the paper in the Vignette
+- CITATION file added
+
+0.9-23
+- implemented strata for the cox model
+- bug repaired: cross-validated predictions did not use the offset term
+- made sure cross-validated predictions are not calculated by .cvl when they are not needed
+- survival package removed from depends field in description file
+- possibility of steps = "Park" implemented in the penalized() function to take steps at the approximate places where the active set changes
+- predictor step of Park algorithm added for steps = "Park"
+- bug repaired: event at t=0 led to crash of .coxmerge. Repaired in .coxfit.
+- bug repaired: linear model with leave-one out cross-validation gave error in .lmmerge
+- bug repaired: survival predictions function was not correct
+- bug repaired: optL1, optL2 did not reweight the regression coefficients before returning them in fullfit
+
+
+0.9-22 (2008-09-29)
+- repaired the link to penfit in the penalized man file
+- Added to option "center=TRUE" for basesurv explicitly to the penfit man file
+- Corrected the error message in case the number of rows of unpenalized was incorrect
+- changed the default of minsteps from steps/4 to steps/2
+- removed an unnessessary warning in case of unpenalized = ~1 or ~0, and data missing
+
+
+0.9-21 (2008-04-25)
+- Implemented the survival function for breslow objects
+- Made storing of all cross-validated predictors in profL1 and profL2 optional.
+- Implemented the predict function.
+- Streamlined the cross-validated predictions, so that predictions are calculated and stored per fold rather than per subject.
+- Fixed an input check bug that prevented counting process type input for survival data.
+- Changed the default value of maxlambda1 in profL1 and optL1, so that maxlambda1 is now the maximal value at which any non-zero regressioncoefficient pops up in any cross-validation fold.
+- Added positivity check for survival response
+- Implemented the possibility of including an offset term
+- Added .modelswitch and .predictswitch functions to reduce code duplication
+- Implemented the Poisson model
+- Implemented coef() as an alias for coefficients()
+- Allowed factor response for the logistic model
+- Changed the definition of the Riskset variable in the Cox model so that it is not nxn anymore but nxd, where d is the number of events.
+- Added argument data=data to all calls to terms() in .checkinput() to allow the "." operator in formula objects.
+- Solved a bug in .coxfit() arising in case of tied survival times
+- More informative error message if penalized or unpenalized are given as a data.frame with non-numeric columns.
+- More informative error message if plotpath is called with a penfit object with all zero regression coefficients.
+
+
+0.9-20 (2008-02-17)
+- Solved a bug in .makeP that resulted in a wrong solution basis in case of a combination of L1 and L2 penalties with a high dimensional solution. Thanks to Martin Slawski for pointing out this bug for me. 
+- Changed the index entry of the vignette from "penalized" to "Penalized user guide".
+
+
+0.9-19 (2007-12-21)
+- Updated the show function for penfit objects so that it always gives the number of non-zero coefficients whenever any coefficient is exactly zero.
+- Solved a numerical imprecision problem in .lasso() that arose when some variables were exactly duplicated.
+
+
+0-9-18 (2007-12-14)
+- Added the posibility of putting a positivity constraint on all penalized covariates.
+- Changed the illogical behavior that setting steps=k led to an output list of length k+1.
+
+
+0-9.17 (2007-12-01)
+- New internal function .checkinput() does improved common input preprocessing for penalized(), cvl(), profL1(), profL2(), optL1() and optL2(), removing much code duplication. The function replaces .prepare() which previously did part of the common input preprocessing.
+- Streamlining in .checkinput() also made the functions .lmgamma(), .coxgamma() and .logitgamma() obsolete.
+- A new function .getFolds() for calculating cross-validation folds also removed much duplicated code.
+- The possibility of giving different lambda1 or lambda2-values for different covariates has been removed, as it was badly implemented. The option may return in the future.
+
+
+0.9-16 (2007-11-16)
+- Changed the input checks to allow the format penalized(response~unpenalized, penalized). This is in line with functions such as lme.
+- Fixed a bug in .coxmerge() that resulted in alignment mistakes in the cross-validated predicted survival curves.
+- Added the advice to the vignette to add an L2 penalty in case of multi-level factors.
+
+
+0.9-15 (2007-11-07)
+- Fixed a bug in penalized() and all cvl-functions that sometimes caused name conflicts because the terms of user-supplied formulae would first be evaluated in the package name space. All eval() calls are now explicitly directed to the correct environment.
+
+
+0.9-14 (2007-11-05)
+- New method basesurv() returns the baseline suvival.
+- basehaz() now returns the baseline hazard instead of the baseline survival curve.
+- The center argument in basehaz() and basesurv() implemented.
+- linear.predictors() method added for penfit objects.
+- Missing documentation of fitted.values() added.
+- as.data.frame() method added for breslow objects.
