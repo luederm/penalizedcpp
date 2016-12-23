@@ -15,7 +15,7 @@ importFrom("graphics", "plot", "axis", "lines", "matplot", "par", "strwidth")
 
 importFrom("utils", "flush.console")
 
-importFrom(Rcpp)
+importFrom(Rcpp, evalCpp)
 
 exportClasses(penfit, breslow)
 

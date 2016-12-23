@@ -6,7 +6,7 @@ Title: L1 (Lasso and Fused Lasso) and L2 (Ridge) Penalized Estimation
 Author: Jelle Goeman, Rosa Meijer, Nimisha Chaturvedi, Matthew Lueder
 Maintainer: Jelle Goeman <j.j.goeman@lumc.nl>
 Depends: R (>= 2.10.0), survival, methods
-Imports: Rcpp, RcppArmadillo
+Imports: Rcpp
 LinkingTo: Rcpp, RcppArmadillo
 Suggests: globaltest
 Description: Fitting possibly high dimensional penalized
@@ -26,4 +26,4 @@ LazyLoad: yes
 Repository: CRAN
 Date/Publication: 2016-05-27 18:08:55
 Packaged: 2016-05-27 11:43:08 UTC; jjgoeman
-NeedsCompilation: no
+NeedsCompilation: yes

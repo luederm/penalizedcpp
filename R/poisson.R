@@ -20,7 +20,7 @@
     loglik <- sum(response * log(lambda)) - sum(lambda) - sum(lfactorial(response))
     if (!is.na(loglik) && (loglik == - Inf)) loglik <- NA
 
-    return(list(residuals = residuals, loglik = loglik, W = List("diagW" = ws, "P" = matrix()), lp = lp, lp0 = lp0, fitted = lambda, nuisance = list()))
+    return(list(residuals = residuals, loglik = loglik, W = list("diagW" = ws, "P" = matrix()), lp = lp, lp0 = lp0, fitted = lambda, nuisance = list()))
   }
 
   cvl <- function(lp, leftout) {
