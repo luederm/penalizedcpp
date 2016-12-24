@@ -1,4 +1,4 @@
-useDynLib(penalizedcpp)
+useDynLib(penalized)
 
 import(methods)
 

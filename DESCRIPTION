@@ -1,4 +1,4 @@
-Package: penalizedcpp
+Package: penalized
 Version: 0.9-47
 Date: 2016-05-26
 Title: L1 (Lasso and Fused Lasso) and L2 (Ridge) Penalized Estimation
