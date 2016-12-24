@@ -99,7 +99,7 @@ oldRidge <- function(beta, eta, Lambda, X, fit, trace = FALSE, epsilon = 1e-8, m
   #     residuals:  The residuals
 
   betaNames = names(beta)
-  result = .Call('penalizedcpp_Lasso', PACKAGE = 'penalizedcpp', beta, lambda, lambda2, positive, X, fit, trace, epsilon, maxiter)
+  result = .Call('penalized_Lasso', PACKAGE = 'penalized', beta, lambda, lambda2, positive, X, fit, trace, epsilon, maxiter)
   result$beta = as.numeric(result$beta)
   names(result$beta) = betaNames
   return(result)
@@ -117,7 +117,7 @@ oldRidge <- function(beta, eta, Lambda, X, fit, trace = FALSE, epsilon = 1e-8, m
     epsilon, maxiter = Inf) {
 
   betaNames = names(beta)
-  out = .Call('penalizedcpp_StepLasso', PACKAGE = 'penalizedcpp', beta, lambda,
+  out = .Call('penalized_StepLasso', PACKAGE = 'penalized', beta, lambda,
 	lambda2, positive, X, fit, trace, epsilon, maxiter)
   out$beta = as.numeric(out$beta)
   names(out$beta) = betaNames
@@ -188,7 +188,7 @@ oldRidge <- function(beta, eta, Lambda, X, fit, trace = FALSE, epsilon = 1e-8, m
     {
         if (missing(eta)) eta <- drop(X %*% beta)
         betaNames = names(beta)
-        out = .Call('penalizedcpp_Ridge', PACKAGE = 'penalizedcpp', beta, eta, as.matrix(Lambda), X, fit, trace, epsilon, maxiter, fitIN)
+        out = .Call('penalized_Ridge', PACKAGE = 'penalized', beta, eta, as.matrix(Lambda), X, fit, trace, epsilon, maxiter, fitIN)
         out$beta = as.numeric(out$beta)
         names(out$beta) = betaNames
         return(out)

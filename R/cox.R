@@ -41,10 +41,10 @@
 
     if (!is.null(offset)) {
         #coxFit = CoxFitCpp( lp + offset, status, Riskset )
-        coxFit = .Call('penalizedcpp_CoxFitCpp', PACKAGE = 'penalizedcpp', lp + offset, status, Riskset)
+        coxFit = .Call('penalized_CoxFitCpp', PACKAGE = 'penalized', lp + offset, status, Riskset)
     } else {
         #coxFit = CoxFitCpp( lp, status, Riskset )
-        coxFit = .Call('penalizedcpp_CoxFitCpp', PACKAGE = 'penalizedcpp', lp, status, Riskset)
+        coxFit = .Call('penalized_CoxFitCpp', PACKAGE = 'penalized', lp, status, Riskset)
     }
 
     # The fitted baseline(s)

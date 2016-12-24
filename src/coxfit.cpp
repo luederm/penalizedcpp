@@ -1,7 +1,6 @@
 #include <RcppArmadillo.h>
 #include "core.h"
 #include "coxfit.h"
-// #include "debug.h"
 
 // [[Rcpp::depends("RcppArmadillo")]]
 // [[Rcpp::export]]

@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // CoxFitCpp
 Rcpp::List CoxFitCpp(const arma::rowvec& lp, const arma::irowvec& status, const arma::umat& riskset);
-RcppExport SEXP penalizedcpp_CoxFitCpp(SEXP lpSEXP, SEXP statusSEXP, SEXP risksetSEXP) {
+RcppExport SEXP penalized_CoxFitCpp(SEXP lpSEXP, SEXP statusSEXP, SEXP risksetSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // Lasso
 Rcpp::List Lasso(arma::vec beta, const arma::vec& lambda, const arma::vec& lambda2, const arma::uvec& positive, const arma::mat& X, const Rcpp::Function& fit, const bool trace, const double epsilon, const double maxiter);
-RcppExport SEXP penalizedcpp_Lasso(SEXP betaSEXP, SEXP lambdaSEXP, SEXP lambda2SEXP, SEXP positiveSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP) {
+RcppExport SEXP penalized_Lasso(SEXP betaSEXP, SEXP lambdaSEXP, SEXP lambda2SEXP, SEXP positiveSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -40,7 +40,7 @@ END_RCPP
 }
 // StepLasso
 Rcpp::List StepLasso(arma::vec beta, const arma::vec& lambda, const arma::vec& lambda2, const arma::uvec& positive, const arma::mat& X, const Rcpp::Function& fit, const bool trace, const double epsilon, const double maxiter);
-RcppExport SEXP penalizedcpp_StepLasso(SEXP betaSEXP, SEXP lambdaSEXP, SEXP lambda2SEXP, SEXP positiveSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP) {
+RcppExport SEXP penalized_StepLasso(SEXP betaSEXP, SEXP lambdaSEXP, SEXP lambda2SEXP, SEXP positiveSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
@@ -59,7 +59,7 @@ END_RCPP
 }
 // Ridge
 Rcpp::List Ridge(arma::vec beta, arma::vec eta, const arma::mat& Lambda, const arma::mat& X, const Rcpp::Function& fit, const bool trace, const double epsilon, const double maxiter, const Rcpp::List& fitInput);
-RcppExport SEXP penalizedcpp_Ridge(SEXP betaSEXP, SEXP etaSEXP, SEXP LambdaSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP, SEXP fitInputSEXP) {
+RcppExport SEXP penalized_Ridge(SEXP betaSEXP, SEXP etaSEXP, SEXP LambdaSEXP, SEXP XSEXP, SEXP fitSEXP, SEXP traceSEXP, SEXP epsilonSEXP, SEXP maxiterSEXP, SEXP fitInputSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
