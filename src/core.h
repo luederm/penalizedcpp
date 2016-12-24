@@ -37,7 +37,7 @@ inline arma::mat Outer( T1 const& A, T2 const& B )
 
 inline arma::mat SolveCpp( arma::mat& A, arma::mat& B )
 {
-    Rcpp::Environment ns = Rcpp::Environment::namespace_env( "penalizedcpp" );
+    Rcpp::Environment ns = Rcpp::Environment::namespace_env( "penalized" );
     Rcpp::Function solve = ns[".solve"];
     return Rcpp::as<arma::mat>( solve( Rcpp::as<Rcpp::NumericMatrix>(Rcpp::wrap(A)),
         Rcpp::as<Rcpp::NumericMatrix>(Rcpp::wrap(B)) ) );
